@@ -3,15 +3,13 @@ from pathlib import Path
 
 import streamlit_authenticator as stauth
 
-names = {"Anikait Thakur", "Mohammed Minaam Bhat", "System Admin"}
-usernames = {"anikait13", "minaam786", "admin"}
-passwords = {"9868", "1234", "admin"}
+import yaml
 
-# uses bcrypt to hash passwords
-hashed_passwords = stauth.Hasher(passwords).generate()
+from yaml.loader import SafeLoader
 
-# finding path to pickle file
-file_path = Path(__file__).parent / "hashed_pw.pkl"
-with file_path.open("wb") as file:
-    pickle.dump(hashed_passwords, file)
+with open('credential.yaml', 'r') as f:
+    data = list(yaml.load_all(f,SafeLoader))
+    print(data[0])
 
+with open('credential.yaml') as file:
+    config = yaml.load(file,SafeLoader)

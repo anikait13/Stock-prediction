@@ -1,5 +1,7 @@
 streamlit
+yaml
 datetime
 yfinance
 prophet
 plotly
+streamlit_authenicator
