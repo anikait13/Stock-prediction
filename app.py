@@ -1,11 +1,10 @@
 import streamlit as st
-import pickle
-from pathlib import Path
+
 import streamlit_authenticator as stauth
 import yaml
 from yaml import SafeLoader
 
-st.title("Welcome to stock predictor LOGIN page app")
+st.title("Welcome to stock predictor")
 
 
 
@@ -32,14 +31,6 @@ elif authentication_status == False:
 elif authentication_status == None:
     st.warning('Please enter your username and password')
 
-if st.session_state["authentication_status"]:
-    authenticator.logout('Logout', 'main')
-    st.write(f'Welcome *{st.session_state["name"]}*')
-    st.title('Some content')
-elif st.session_state["authentication_status"] == False:
-    st.error('Username/password is incorrect')
-elif st.session_state["authentication_status"] == None:
-    st.warning('Please enter your username and password')
 
 
 
