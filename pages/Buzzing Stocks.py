@@ -51,14 +51,12 @@ def stock_info(headings):
     Extracts the data
     """
 
-    stocks_df = pd.read_csv("./data/ind_nifty500list.csv")
-    counter = 0
+    stocks_df = pd.read_csv("./data/ind_nifty50list.csv")
     for title in headings:
         doc = nlp(title.text)
         for token in doc.ents:
             try:
                 if stocks_df['Company Name'].str.contains(token.text).sum():
-                    counter = counter + 1
                     symbol = stocks_df[stocks_df['Company Name'].\
                         str.contains(token.text)]['Symbol'].values[0]
                     print(symbol)
@@ -67,7 +65,7 @@ def stock_info(headings):
                         str.contains(token.text)]['Company Name'].values[0]
 
                     stock_info_dict['Org'].append(org_name)
-                    stock_info_dict['Org'].append(org_name)
+                    stock_info_dict['Symbol'].append(symbol)
 
                     stock_info = yf.Ticker(symbol + ".NS").info
 
@@ -76,7 +74,6 @@ def stock_info(headings):
                     stock_info_dict['dayLow'].append(stock_info['dayLow'])
                     stock_info_dict['forwardPE'].append(stock_info['forwardPE'])
                     stock_info_dict['dividendYield'].append(stock_info['dividendYield'])
-                    if counter
                 else:
                     pass
             except:
@@ -93,7 +90,7 @@ fin_headings = extract_text_from_rss(user_input)
 
 ## output the financial info through a dataframe
 output_df = stock_info(fin_headings)
-output_df.drop_duplicates(True)
+output_df.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index=False)
 st.dataframe(output_df)
 
 ## display the news in an expander section
