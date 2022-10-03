@@ -7,8 +7,7 @@ import os
 from spacy import displacy
 from bs4 import BeautifulSoup
 import yfinance as yf
-import matplotlib
-from spacy_streamlit import visualize_ner
+
 
 st.title('Buzzing Stocks :zap:')
 
