@@ -1,10 +1,8 @@
 streamlit~=1.12.2
-yaml
 datetime~=4.5
 yfinance~=0.1.74
-prophet~=1.1
+prophet~=1.0
 plotly~=5.10.0
-streamlit_authenicator
 gitdb~=4.0.9
 cryptography~=38.0.1
 pip~=22.2.2
@@ -19,7 +17,6 @@ rich~=12.5.1
 Pygments~=2.13.0
 commonmark~=0.9.1
 numpy~=1.21.5
-httpstan~=4.8.2
 clikit~=0.6.2
 aiohttp~=3.8.1
 PyYAML~=6.0
