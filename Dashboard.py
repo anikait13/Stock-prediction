@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 from yaml import SafeLoader
-from streamlit_extras.switch_page_button import switch_page
+
 
 
 st.set_page_config(page_title="streamlit Dashboard", page_icon=":bar_chart:", layout="wide")
@@ -33,6 +33,7 @@ authenticator = stauth.Authenticate(
 )
 
 name, authentication_status, username = authenticator.login('Login', 'main')
+
 
 if authentication_status == False:
     st.error("Username/password is incorrect")
