@@ -1,4 +1,5 @@
 import streamlit as st
+from st_on_hover_tabs import on_hover_tabs
 import streamlit_authenticator as stauth
 import yaml
 from yaml import SafeLoader
@@ -19,7 +20,7 @@ hide_bar= """
     </style>
 """
 
-st.title("Welcome to stock predictor")
+st.title("Welcome to Stock Analysis App")
 
 with open('credential.yaml') as file:
     config = yaml.load(file,SafeLoader)
@@ -47,11 +48,11 @@ if authentication_status == None:
 if authentication_status:
     # # ---- SIDEBAR ----
     st.sidebar.title(f"Welcome {name}")
-    # st.sidebar.header("select page here :")
     st.write("# Welcome to Streamlit!..")
 
     ###about ....
-    st.subheader("Introduction :")
+    st.balloons()
+    st.subheader("Dashboard :")
     st.text("1. \n2. \n3. \n4. \n5. \n")
 
     st.sidebar.success("Select a page above.")
