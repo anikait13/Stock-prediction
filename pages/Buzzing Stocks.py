@@ -2,11 +2,10 @@ import pandas as pd
 import requests
 import spacy
 import streamlit as st
-
+import sentiment
 
 from bs4 import BeautifulSoup
 import yfinance as yf
-
 
 st.title('Buzzing Stocks :zap:')
 
@@ -33,6 +32,7 @@ def extract_text_from_rss(rss_link):
 stock_info_dict = {
     'Org': [],
     'Symbol': [],
+    'Sentiment': [],
     'currentPrice': [],
     'dayHigh': [],
     'dayLow': [],
@@ -41,6 +41,9 @@ stock_info_dict = {
 }
 nlp = spacy.load("en_core_web_sm")
 
+
+def find_sentiement(heading):
+    sentiment.sentiment_scores(heading)
 
 def stock_info(headings):
     """
@@ -52,18 +55,20 @@ def stock_info(headings):
     stocks_df = pd.read_csv("./data/ind_nifty50list.csv")
     for title in headings:
         doc = nlp(title.text)
+        stock_sentiment = find_sentiement(title)
         for token in doc.ents:
             try:
                 if stocks_df['Company Name'].str.contains(token.text).sum():
-                    symbol = stocks_df[stocks_df['Company Name'].\
+                    symbol = stocks_df[stocks_df['Company Name']. \
                         str.contains(token.text)]['Symbol'].values[0]
                     print(symbol)
 
-                    org_name = stocks_df[stocks_df['Company Name'].\
+                    org_name = stocks_df[stocks_df['Company Name']. \
                         str.contains(token.text)]['Company Name'].values[0]
 
                     stock_info_dict['Org'].append(org_name)
                     stock_info_dict['Symbol'].append(symbol)
+                    stock_info_dict['Sentiment'].append(stock_sentiment)
 
                     stock_info = yf.Ticker(symbol + ".NS").info
 
@@ -95,5 +100,3 @@ st.dataframe(output_df)
 with st.expander("Expand for Financial News!"):
     for h in fin_headings:
         st.markdown("* " + h.text)
-
-
