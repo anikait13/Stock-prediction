@@ -4,7 +4,7 @@
     <list default="true" id="b34c451a-2dbd-4f63-aa89-f795d9f918d4" name="Changes" comment="bugs fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Buzzing Stocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Buzzing Stocks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Get predictions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Get predictions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +110,7 @@
       <workItem from="1665224998603" duration="768000" />
       <workItem from="1665516940749" duration="1360000" />
       <workItem from="1665518314266" duration="348000" />
-      <workItem from="1665555735826" duration="8377000" />
+      <workItem from="1665555735826" duration="10535000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1664819168123</created>

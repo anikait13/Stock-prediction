@@ -43,7 +43,7 @@ nlp = spacy.load("en_core_web_sm")
 
 
 def find_sentiement(heading):
-    sentiment.sentiment_scores(heading)
+    return sentiment.sentiment_scores(heading)
 
 def stock_info(headings):
     """
@@ -55,7 +55,6 @@ def stock_info(headings):
     stocks_df = pd.read_csv("./data/ind_nifty50list.csv")
     for title in headings:
         doc = nlp(title.text)
-        stock_sentiment = find_sentiement(title)
         for token in doc.ents:
             try:
                 if stocks_df['Company Name'].str.contains(token.text).sum():
@@ -65,6 +64,9 @@ def stock_info(headings):
 
                     org_name = stocks_df[stocks_df['Company Name']. \
                         str.contains(token.text)]['Company Name'].values[0]
+
+                    stock_sentiment = find_sentiement(title)
+                    print(stock_sentiment)
 
                     stock_info_dict['Org'].append(org_name)
                     stock_info_dict['Symbol'].append(symbol)

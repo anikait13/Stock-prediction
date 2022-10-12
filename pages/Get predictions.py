@@ -10,6 +10,7 @@ from plotly import graph_objs as go
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
+st.set_page_config(page_title="Get Predictions", page_icon="🔮")
 st.title('Stock Forecast App')
 
 stocks = ('GOOG', 'AAPL', 'MSFT', 'GME')
