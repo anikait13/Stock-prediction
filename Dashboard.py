@@ -19,11 +19,15 @@ hide_bar= """
     }
     </style>
 """
+st.image("./logo.png", width=250)
 
 st.title("Welcome to Stock Analysis App")
 
 with open('credential.yaml') as file:
     config = yaml.load(file,SafeLoader)
+
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>',unsafe_allow_html= True)
 
 authenticator = stauth.Authenticate(
     config['credentials'],
