@@ -97,3 +97,4 @@ preshed~=3.0.7
 murmurhash~=1.0.8
 confection~=0.0.1
 urllib3~=1.26.7
+vaderSentiment~=3.3.2
