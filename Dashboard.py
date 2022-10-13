@@ -1,5 +1,4 @@
 import streamlit as st
-from st_on_hover_tabs import on_hover_tabs
 import streamlit_authenticator as stauth
 import yaml
 from yaml import SafeLoader
