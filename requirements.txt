@@ -1,4 +1,4 @@
-streamlit~=1.12.2
+pip~=1.12.2
 datetime~=4.5
 yfinance~=0.1.74
 prophet~=1.0
@@ -98,3 +98,6 @@ murmurhash~=1.0.8
 confection~=0.0.1
 urllib3~=1.26.7
 vaderSentiment~=3.3.2
+streamlit_authenticator
+bs4
+en_core_web_sm

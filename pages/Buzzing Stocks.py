@@ -3,7 +3,6 @@ import requests
 import spacy
 import streamlit as st
 import sentiment
-
 from bs4 import BeautifulSoup
 import yfinance as yf
 
@@ -66,6 +65,7 @@ def stock_info(headings):
                         str.contains(token.text)]['Company Name'].values[0]
 
                     stock_sentiment = find_sentiement(title)
+                    print(title)
                     print(stock_sentiment)
 
                     stock_info_dict['Org'].append(org_name)
