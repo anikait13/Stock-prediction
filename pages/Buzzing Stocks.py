@@ -23,7 +23,7 @@ def extract_text_from_rss(rss_link):
     soup2 = BeautifulSoup(r2.content, features='lxml')
     headings1 = soup1.findAll('title')
     headings2 = (soup2.findAll('title'))
-    print(headings2)
+    print(headings)
     headings = headings1 + headings2
     return headings
 
@@ -38,23 +38,45 @@ stock_info_dict = {
     'forwardPE': [],
     'dividendYield': []
 }
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_lg")
 
 
 def find_sentiement(heading):
     return sentiment.sentiment_scores(heading)
 
+#def highlight_sentiment(s):
+  #  return ['background-color: green']*len(s) if s.Survived else ['background-color: red']*len(s)
+
+def color_sentiment(val):
+    if val == "Positive":
+        color = 'green'
+    elif val == "Negative":
+        color = 'red'
+    else:
+        color = 'yellow'
+    return f'background-color: {color}'
 def stock_info(headings):
+
     """
     Goes over each heading to find out the entities
-    and link it with the nifty 50 companies data.
+    and link it with the nifty 500 companies data.
     Extracts the data
     """
 
-    stocks_df = pd.read_csv("./data/ind_nifty50list.csv")
+    stocks_df = pd.read_csv("./data/ind_nifty500list.csv")
+    printed = []
     for title in headings:
         doc = nlp(title.text)
         for token in doc.ents:
+
+            print(token)
+
+            if str(token) == "India":
+                continue #Coal India bug
+
+            if str(token) in printed: #removing duplicates
+                continue
+
             try:
                 if stocks_df['Company Name'].str.contains(token.text).sum():
                     symbol = stocks_df[stocks_df['Company Name']. \
@@ -67,6 +89,7 @@ def stock_info(headings):
                     stock_sentiment = find_sentiement(title)
                     print(title)
                     print(stock_sentiment)
+                    printed.append(str(token))
 
                     stock_info_dict['Org'].append(org_name)
                     stock_info_dict['Symbol'].append(symbol)
@@ -93,10 +116,11 @@ user_input = st.text_input("Add your RSS link here!", "https://www.moneycontrol.
 ## get the financial  headings
 fin_headings = extract_text_from_rss(user_input)
 
-## output the financial info through a dataframe
+## output the financial info of various stocks through a dataframe
 output_df = stock_info(fin_headings)
 output_df.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index=False)
-st.dataframe(output_df)
+#st.dataframe(df.style.apply(highlight_sentiment, axis=1))
+st.dataframe(output_df.style.applymap(color_sentiment, subset=['Sentiment']))
 
 ## display the news in an expander section
 with st.expander("Expand for Financial News!"):

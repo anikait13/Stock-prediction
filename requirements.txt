@@ -100,4 +100,4 @@ urllib3~=1.26.7
 vaderSentiment~=3.3.2
 streamlit_authenticator
 bs4
-en_core_web_sm
+en_core_web_lg
