@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b34c451a-2dbd-4f63-aa89-f795d9f918d4" name="Changes" comment="bugs fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Buzzing Stocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Buzzing Stocks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Get predictions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Get predictions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Past Analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Past Analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +141,7 @@
       <workItem from="1666762784363" duration="351000" />
       <workItem from="1667016277967" duration="492000" />
       <workItem from="1667016855806" duration="5871000" />
-      <workItem from="1667365142418" duration="2902000" />
+      <workItem from="1667365142418" duration="9534000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1664819168123</created>
