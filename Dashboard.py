@@ -51,12 +51,11 @@ if authentication_status == None:
 if authentication_status:
     # # ---- SIDEBAR ----
     st.sidebar.title(f"Welcome {name}")
-    st.write("# Welcome to Streamlit!..")
+    st.write("# ")
 
     ###about ....
     st.balloons()
-    st.subheader("Dashboard :")
-    st.text("1. \n2. \n3. \n4. \n5. \n")
+    st.subheader(f"Good Morning {name} \n Whats on your mind today?")
 
     st.sidebar.success("Select a page above.")
 

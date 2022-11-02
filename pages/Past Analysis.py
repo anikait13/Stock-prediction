@@ -10,7 +10,7 @@ TODAY = date.today().strftime("%Y-%m-%d")
 st.title('Stock Forecast App')
 
 stocks = ('GOOG', 'AAPL', 'MSFT', 'GME')
-selected_stock = st.selectbox('Select dataset for prediction', stocks)
+selected_stock = st.selectbox('Select stock for past analysis', stocks)
 
 @st.cache
 def load_data(ticker):

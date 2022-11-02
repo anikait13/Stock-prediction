@@ -49,11 +49,11 @@ def find_sentiement(heading):
 
 def color_sentiment(val):
     if val == "Positive":
-        color = 'green'
+        color = 'lime'
     elif val == "Negative":
-        color = 'red'
+        color = '#ff5050'
     else:
-        color = 'yellow'
+        color = '#ffff00'
     return f'background-color: {color}'
 def stock_info(headings):
 

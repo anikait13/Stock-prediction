@@ -11,7 +11,7 @@ START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
 st.set_page_config(page_title="Get Predictions", page_icon="🔮")
-st.title('Stock Forecast App')
+st.title('Stock Analysis App')
 
 stocks = ('GOOG', 'AAPL', 'MSFT', 'GME')
 selected_stock = st.selectbox('Select dataset for prediction', stocks)
